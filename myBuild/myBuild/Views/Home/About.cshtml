@@ -1,0 +1,332 @@
+﻿@{
+    ViewBag.Title = "Jquery";
+}
+<style type="text/css">
+    td {text-align:left;vertical-align:top;}
+        input[type=text] { background-color:#efefef;}
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .Highlight { background-color:Yellow;}
+        .LightHighlight { background-color: #ccc;}
+        .PhoneHighlight { background-color:#ccc;}
+        .PhoneNumber { margin-top:5px;width:80px;}
+        .PhoneType { margin-top:5px;}
+        .PhoneNumberDiv {text-align:left; vertical-align:middle; width:200px;float:left;margin-bottom:5px; height:30px; }
+        .PhoneTypeDiv { text-align:left; vertical-align:middle;width:100px;float:left; height:30px; }
+</style>
+@section Scripts{
+  <script>
+      $(document).ready(function () {
+          //var imgs = $('img');
+          //alert(imgs.length);
+
+          //this is selecting by a html element.
+          //$('div').css('background-color', 'Green');
+
+          //$('div').each(function () {
+          //    alert($(this).html());
+          //});
+
+          //this is selecting by a tag id value
+          //alert($('#TestDiv').html());
+
+          //gets by class name, can put the tag befor the period.
+          //$('.BlueDiv, .RedDiv').css('border', '2px solid green');
+
+          //selecting by attribute values
+          //var inputs = $(':button');
+          //inputs.css('background-color', 'yellow');
+
+          //gets the value of all input controls
+          //for example textarea, select, and input type = sumbit and text.
+          //$('#form1 :input').each(function () {
+          //    var ele = $(this); 
+          //    alert(ele.val());
+          //});
+           
+          //$('#DataTable tr:odd').css('background-color', 'yellow');
+          //
+
+          //$('div:contains("my div")');
+
+          //$= here is used to indicate ends with. ^= indicates starts with. *= indicates contains.
+          //$('div[title*="Title"]').html('sss');
+
+          
+          //var html = '';
+          //$('div.BlueDiv, div.RedDiv').each(function (index) {
+
+          //    html +='<br />' + index + " " + $(this).text();
+          //});
+          //var output = $('#OutputDiv');
+          //output.html(html);
+
+          //$('div.BlueDiv, div.RedDiv').each(function (index) {
+          //    //raw dom object
+          //    this.title = "some title";
+          //    //a jquery object.
+          //    $(this).attr('title', 'some title 2');
+          //});
+
+          //$('div.BlueDiv, div.RedDiv')
+          //    .css('background-color', 'yellow')
+          //    .css('color', 'black')
+          //    .attr(
+          //    {
+          //        title: 'some title 3'
+          //        //style:'font-size:14pt;background-color:yellow;color:black'
+          //    });
+
+          //$('#TableContainerDiv').append('<span style="background-color:green"> Appended child 1</span>');
+          //$('#TableContainerDiv').prepend('<span style="background-color:green"> Appended child 1</span>');
+
+          //$('span.Foo').wrap('<div class="RedDiv ParentWrapper"/>')
+
+          //$('div.ParentWrapper').remove();
+
+          //$('div.BlueDiv,div.RedDiv')
+          //      .attr(
+          //          {
+          //              title: 'Some title 3'
+          //          }
+          //      )
+          //      //using JSon with the ' ' here optional
+          //      .css({
+          //          'background-color': 'purple',
+          //          'color': 'white',
+          //          'font-size': '20pt'
+          //      })
+          //      .text('Changed Color');
+
+          //$('#form1').addClass('High1');//.css('background-color', 'yellow');//.addClass('High1');
+
+          WireEvents();
+      });
+
+      function WireEvents() {
+          $('#SubmitButton').click(function () {
+              var firstNameVal = $('#FirstNameTextBox').val();
+              var lastNameVal = $('#LastNameTextBox').val();
+              $('#DivOutput').text(firstNameVal + ' ' + lastNameVal);
+          });
+
+          //$('#StatesSelect').change(function () {
+          //    alert($(this).val());
+          //});
+
+          //$('.MyInput').change(function () {
+          //    alert($(this).val());
+          //    $(this).addClass('Highlight')
+          //});
+
+          //Using short-cut event functions
+          //$('#MyDiv').mouseenter(function () {
+          //    Toggle(this);
+          //    $(this).css('cursor', 'pointer');
+          //})
+          //.mouseleave(function () {
+          //    Toggle(this);
+          //})
+          //.mouseup(function (e) {
+          //    alert($(e.target).attr('id'));
+          //    $(this).text('X: ' + e.pageX + ' Y: ' + e.pageY);
+          //});
+
+          //$('#MyDiv').on('mouseenter mouseleave mouseup', function (e) {
+
+          //    $(this).toggleClass('Highlight');
+          //    $(this).css('cursor', 'pointer');
+          //    if (e.type == 'mouseup') {
+          //        $(this).text('X: ' + e.pageX + ' Y: ' + e.pageY);
+          //    }
+              
+          //});
+          //function Toggle(div) {
+          //    $(div).toggleClass('Highlight');
+          //}
+          //this will remove all evenets and we can supply a name to remaove specific events.
+          // $('#MyDiv').off();
+
+          //this is putting the event code on a parent conatiner so forexample here we only add it to the 
+          //table body which will catch the bubbled up events on a td element in that conatiner.
+          //var table = $('#customers tbody');
+
+          //$('#addRow').on('click', function () {
+          //    table.append('<tr><td>Scott</td><td>Wright</td></tr>');
+          //});
+
+          //table.on('click', 'td', function () {
+          //    alert($(this).text());
+          //});
+
+          //$('#MyTable tr').hover(
+          //    function () {
+          //        //mouseEnter
+          //        $(this)
+          //},
+          //    function () {
+          //        //mouseLeave
+          //    });
+
+          //$('#MyTable tr').hover(
+          //    function () {
+                  
+          //        $(this).toggleClass('Highlight');
+          //    });
+          //$('#customers tr').mouseenter(
+                 
+          //       function () {
+                     
+          //           $(this).toggleClass('Highlight');
+          //       }
+          //       );
+
+      }
+    </script>
+    }
+    
+
+<h2>@ViewBag.Title.</h2>
+<div id="MyDiv" title="Div Title asdf asdfsdf asdf">Some text</div>
+<div title="Contains Table" id="TableContainerDiv">
+    <table id="DataTable">
+        <tr>
+            <td>Cell 1 Row 1</td>
+        </tr>
+        <tr>
+            <td>Cell 1 Row 2</td>
+        </tr>
+        <tr>
+            <td>Cell 1 Row 3</td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width:100% ">
+                    <tr>
+                        <td>Nested Table Cell and Row</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
+<div class="BlueDiv">
+    <span>Blue div</span>
+</div>
+<br />
+<span class="Foo">Span 1</span>
+
+<span class="Foo">Span 2</span>
+
+<span id="Span3" class="Foo">Span 3</span>
+<br/>
+<div class="RedDiv">
+    <span>Red div</span>
+</div>
+<br/>
+<p>
+    <img src="~/Images/pluralsight.jpg"  />
+</p>
+
+
+<div id="MyDiv">This is some text</div>
+<form id="form1">
+    <table id="MyTable" style="width:300px;" cellpadding="5">
+        <tr>
+            <td style="width:30%;">First Name</td>
+            <td style="width:70%;"><input id="FirstNameTextBox" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input class="MyInput" id="LastNameTextBox" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Comments</td>
+            <td><textarea class="MyInput" rows="5" cols="60" id="CommentsTextBox"></textarea></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>
+                <input type="button" id="AddPhone" value="Add Phone" />
+                <div id="PhonesDiv" style="margin-top:10px;">
+                    <div class="PhoneTypeDiv">
+                        <select class="PhoneType">
+                            <option value="">Select One:</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+                    <div class="PhoneNumberDiv">
+                        <input type="text" class="PhoneNumber" maxlength="12" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                State
+            </td>
+            <td>
+                <select id="StatesSelect" class="MyInput">
+                    <option value="AZ">AZ</option>
+                    <option value="CA" selected="selected">CA</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input id="SubmitButton" type="button" value="Submit" /></td>
+            <td>
+                <div id="DivOutput"></div>
+            </td>
+        </tr>
+    </table>
+    <div id="selectedPerson"></div>
+    <input id="addRow" type="button" value="Add Row" class="btn" />
+    <table id="customers" class="table">
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>Jim</td>
+            <td>Leaner</td>
+        </tr>
+        <tr>
+            <td>Michelle</td>
+            <td>James</td>
+        </tr>
+        <tr>
+            <td>Heedy</td>
+            <td>Faust</td>
+        </tr>
+        <tr>
+            <td>Tina</td>
+            <td>Smith</td>
+        </tr>
+        <tr>
+            <td>Supna</td>
+            <td>Patoria</td>
+        </tr>
+        <tr>
+            <td>Spike</td>
+            <td>Francis</td>
+        </tr>
+        <tr>
+            <td>Dan</td>
+            <td>Wahlin</td>
+        </tr>
+    </table>
+</form>
+ <script type="text/javascript">
+     //Handle events the old-fashioned way
+     //        var button = document.getElementById('SubmitButton');
+     //        if (document.addEventListener) {
+     //            button.addEventListener('click', function () { alert('Clicked Button'); }, false);
+     //        }
+     //        else {
+     //            button.attachEvent('onclick', function () { alert('Clicked IE Button'); });
+     //        }
+</script>
+
+

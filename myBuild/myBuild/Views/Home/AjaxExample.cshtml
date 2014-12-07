@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "AjaxExample";
+}
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyButton').click(function () {
+                //    //Load HTML from HelpDetails.html
+                //    $('#OutputDiv').load('../HelpDetails.html #MainTOC');
+                //});
+                //when the page is not found
+                //$('#HelpButton').click(function () {
+                //    $('#OutputDiv').load('NotFound.html',
+                //        function (response, status, xhr) {
+                //            if (status == "error") {
+                //                alert('Error: ' + xhr.statusText);
+                //            }
+                //        });
+                //});
+
+            //    $.getJSON('/api/v1/topics?includeReplies=true', function (data) {
+            //        alert(data);
+            //    }, 'json');
+                var newReply = {};
+                newReply.body = 'hey now 2';
+               
+                //$.post('/api/v1/topics/4/replies', newReply, function (data) {
+                //    alert(data.id)
+                //},'json');
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/v1/topics/4/replies',
+                    data: newReply,
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        alert(data.id + ' ' + status);
+                    },
+                    error: function (xhr, status, error){
+                        alert(status);
+                    }
+                });
+            });
+        });
+</script>
+    }
+
+    <button id="MyButton">Click to Get HTML</button>
+    <div id="OutputDiv"></div>
+
+

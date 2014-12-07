@@ -1,0 +1,10 @@
+﻿@model IEnumerable<myBuild.Data.Topic>
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.InitModule = "homeIndex";
+}
+@section Scripts{
+    <script src="~/js/home-index.js"></script>
+}
+
+<div ng-view></div>
